@@ -24,7 +24,7 @@ app.get("/products", async (req, res) => {
 app.get("/products/:id", async (req, res) => {
   let id = req.params.id;
   let product = await ProductService.getProductById(id);
-  if (!product || !product[0]) {
+  if (!product ) {
     res.status(404).send("Product not found");
   } else res.json(product);
 });
